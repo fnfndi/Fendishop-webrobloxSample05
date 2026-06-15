@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CYBERPUNK GAMING HUB</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;700;800&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+:root{
+--cyan:#00f5ff;
+--purple:#8b5cf6;
+--pink:#ff00c8;
+--dark:#050816;
+--card:#111827;
+--text:#ffffff;
+}
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+html{
+scroll-behavior:smooth;
+}
+
+body{
+background:var(--dark);
+font-family:Poppins,sans-serif;
+color:white;
+overflow-x:hidden;
+}
+
+/* Background */
+body::before{
+content:'';
+position:fixed;
+width:100%;
+height:100%;
+background:
+radial-gradient(circle at 20% 20%,rgba(0,245,255,.15),transparent 30%),
+radial-gradient(circle at 80% 30%,rgba(255,0,200,.15),transparent 30%),
+radial-gradient(circle at 50% 90%,rgba(139,92,246,.15),transparent 35%);
+z-index:-1;
+}
+
+/* Navbar */
+.navbar{
+position:fixed;
+top:0;
+left:0;
+width:100%;
+padding:20px 8%;
+display:flex;
+justify-content:space-between;
+align-items:center;
+background:rgba(5,8,22,.75);
+backdrop-filter:blur(15px);
+z-index:999;
+border-bottom:1px solid rgba(255,255,255,.08);
+}
+
+.logo{
+font-family:Orbitron;
+font-size:28px;
+font-weight:800;
+color:var(--cyan);
+text-shadow:0 0 20px var(--cyan);
+}
+
+.menu{
+display:flex;
+gap:25px;
+list-style:none;
+}
+
+.menu a{
+color:white;
+text-decoration:none;
+}
+
+/* Hero */
+.hero{
+min-height:100vh;
+display:flex;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:0 20px;
+}
+
+.hero h1{
+font-family:Orbitron;
+font-size:80px;
+line-height:1.1;
+}
+
+.hero span{
+color:var(--cyan);
+text-shadow:
+0 0 10px var(--cyan),
+0 0 20px var(--cyan),
+0 0 40px var(--cyan);
+}
+
+.hero p{
+margin-top:25px;
+font-size:20px;
+color:#cbd5e1;
+}
+
+.btn{
+display:inline-block;
+margin-top:35px;
+padding:16px 35px;
+border-radius:50px;
+text-decoration:none;
+font-weight:700;
+background:linear-gradient(90deg,var(--cyan),var(--purple));
+color:black;
+}
+
+/* Stats */
+.stats{
+padding:80px 8%;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.stat{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(12px);
+padding:30px;
+border-radius:20px;
+text-align:center;
+}
+
+.stat h2{
+color:var(--cyan);
+font-size:40px;
+}
+
+/* Section */
+.section{
+padding:80px 8%;
+}
+
+.title{
+font-family:Orbitron;
+font-size:42px;
+text-align:center;
+margin-bottom:50px;
+}
+
+/* Search */
+.search-box{
+max-width:700px;
+margin:auto;
+margin-bottom:40px;
+}
+
+.search-box input{
+width:100%;
+padding:18px;
+border:none;
+border-radius:15px;
+background:#111827;
+color:white;
+}
+
+/* Cards */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:30px;
+}
+
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(20px);
+border-radius:20px;
+overflow:hidden;
+border:1px solid rgba(255,255,255,.08);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-10px);
+box-shadow:0 0 30px rgba(0,245,255,.25);
+}
+
+.card img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+.content{
+padding:20px;
+}
+
+.badge{
+display:inline-block;
+padding:6px 12px;
+border-radius:50px;
+background:linear-gradient(90deg,var(--cyan),var(--pink));
+color:black;
+font-weight:700;
+font-size:12px;
+margin-bottom:10px;
+}
+
+.price{
+font-size:28px;
+font-weight:700;
+color:#00ff88;
+margin-top:15px;
+}
+
+/* Testimonials */
+.testimonials{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.review{
+background:#111827;
+padding:25px;
+border-radius:20px;
+}
+
+/* Footer */
+footer{
+background:#020617;
+padding:60px 8%;
+margin-top:50px;
+}
+
+.footer-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:30px;
+}
+
+.footer-title{
+color:var(--cyan);
+margin-bottom:15px;
+font-family:Orbitron;
+}
+
+.social a{
+display:block;
+color:white;
+text-decoration:none;
+margin-bottom:10px;
+}
+
+
+.disclaimer{
+margin-top:40px;
+background:#111827;
+padding:20px;
+border-left:4px solid var(--cyan);
+line-height:1.8;
+}
+
+.animasi-teks {
+    animation: glow 1.5s ease-in-out infinite alternate;
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 5px #fff, 0 0 10px #fff, 0 0 15px #007acc;
+    }
+    to {
+        text-shadow: 0 0 10px #fff, 0 0 20px #ff4da6, 0 0 30px #ff4da6;
+    }
+}
+
+
+/* Floating WhatsApp */
+.whatsapp{
+position:fixed;
+right:25px;
+bottom:25px;
+width:65px;
+height:65px;
+background:#25D366;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+text-decoration:none;
+font-size:30px;
+z-index:9999;
+box-shadow:0 0 25px rgba(37,211,102,.7);
+animation:pulse 2s infinite;
+}
+
+@keyframes pulse{
+0%{transform:scale(1);}
+50%{transform:scale(1.08);}
+100%{transform:scale(1);}
+}
+
+@media(max-width:768px){
+
+.hero h1{
+font-size:48px;
+}
+
+.menu{
+display:none;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<nav class="navbar">
+<div class="logo">CYBER HUB</div>
+
+<ul class="menu">
+<li><a href="#home">Home</a></li>
+<li><a href="#catalog">Catalog</a></li>
+<li><a href="#review">Review</a></li>
+<li><a href="#contact">Contact</a></li>
+</ul>
+</nav>
+
+<section class="hero" id="home">
+
+<div>
+
+<h1>
+WELCOME TO<br>
+<span>CYBERPUNK 2026</span>
+</h1>
+
+<p>
+Future Gaming Marketplace & Digital Collection Showcase
+</p>
+
+<a href="#catalog" class="btn">
+EXPLORE NOW
+</a>
+
+</div>
+
+</section>
+
+<section class="stats">
+
+<div class="stat">
+<h2>20K+</h2>
+<p>Members</p>
+</div>
+
+<div class="stat">
+<h2>8.5K+</h2>
+<p>Collections</p>
+</div>
+
+<div class="stat">
+<h2>99%</h2>
+<p>Positive Rating</p>
+</div>
+
+<div class="stat">
+<h2>24/7</h2>
+<p>Support</p>
+</div>
+
+</section>
+
+<section class="section" id="catalog">
+
+<h2 class="title">
+FEATURED COLLECTION
+</h2>
+
+<div class="search-box">
+<input type="text" placeholder="Cari koleksi...">
+</div>
+
+<div class="grid">
+
+<div class="card">
+<img src="https://picsum.photos/600/400?1">
+<div class="content">
+<div class="badge">TRENDING</div>
+<h3>Cyber Neon Pack</h3>
+<p>Futuristic avatar collection.</p>
+<div class="price">Rp 1.250.000</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/600/400?2">
+<div class="content">
+<div class="badge">LIMITED</div>
+<h3>Galaxy Bundle</h3>
+<p>Rare digital collection.</p>
+<div class="price">Rp 2.450.000</div>
+</div>
+</div>
+
+<div class="card">
+<img src="https://picsum.photos/600/400?3">
+<div class="content">
+<div class="badge">HOT</div>
+<h3>Neon Future Set</h3>
+<p>Exclusive futuristic design.</p>
+<div class="price">Rp 1.890.000</div>
+</div>
+</div>
+
+</div>
+
+</section>
+
+<section class="section" id="review">
+
+<h2 class="title">
+COMMUNITY REVIEWS
+</h2>
+
+<div class="testimonials">
+
+<div class="review">
+⭐⭐⭐⭐⭐
+<br><br>
+Tampilan futuristik dan mudah digunakan.
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐
+<br><br>
+Desain premium dengan nuansa cyberpunk yang kuat.
+</div>
+
+<div class="review">
+⭐⭐⭐⭐⭐
+<br><br>
+Katalog rapi dan responsif di mobile.
+</div>
+
+</div>
+
+</section>
+
+<footer id="contact">
+
+<div class="footer-grid">
+
+<div>
+<div class="footer-title">CYBER HUB</div>
+<p>Future Gaming Community Platform.</p>
+</div>
+
+<div>
+<div class="footer-title">Social Media</div>
+<div class="social">
+<a href="#">Instagram</a>
+<a href="#">Facebook</a>
+<a href="#">Discord</a>
+<a href="#">WhatsApp</a>
+</div>
+</div>
+
+</div>
+
+<div class="disclaimer">
+Website demo bertema cyberpunk untuk katalog digital dan komunitas gaming. Konten, harga, dan koleksi yang ditampilkan merupakan contoh tampilan antarmuka.
+</div>
+
+<footer>
+  <p class="animasi-teks">© 2026 FendiDesign.</p>
+
+
+</footer>
+
+<!-- Ganti nomor di bawah dengan nomor WhatsApp Anda -->
+<a href="https://wa.me/6283875008929" class="whatsapp" target="_blank">
+💬
+</a>
+
+
+</body>
+</html>
